@@ -1,28 +1,49 @@
-Project Overview:
-This project aims to differentiate between old and new cars using a basic Neural Network (NN) built with Fast.ai. The model is trained on a dataset containing images of both old and new cars and is deployed using the Hugging Face Spaces platform.
+# Fast.AI Car Age Classifier
 
-Project Structure:
+A deep learning model built with Fast.AI that classifies cars as either "old" or "new". The model is deployed on Hugging Face Spaces and achieves high accuracy in distinguishing between vintage and modern vehicles.
 
-    Data Collection: Images of old and new cars are collected using the DuckDuckGo image search API.
-    Data Preparation: Images are downloaded and organized into separate folders for old and new cars.
-    Model Building: A basic Neural Network model is constructed using Fast.ai library, utilizing transfer learning with ResNet-18 architecture.
-    Model Training: The model is trained on the dataset, fine-tuned to improve performance, and evaluated using metrics such as accuracy and error rate.
-    Model Exporting: The trained model is exported for deployment on the Hugging Face Spaces platform.
-    Deployment: The deployed model can be accessed via the provided Hugging Face Spaces link.
+## Features
+- Binary image classification (Old vs New cars)
+- Built using Fast.AI and ResNet18 architecture 
+- Deployed on Hugging Face Spaces
+- ~80% accuracy on validation set
+- Interactive web interface for real-time predictions
 
-Files Included:
+## Technical Details
+- Training data scraped from DuckDuckGo image search
+- ResNet18 pre-trained model with fine-tuning
+- Data augmentation using random transforms
+- Batch size of 16 with 20% validation split
+- One epoch of fine-tuning
 
-    Project_3_NN.ipynb: Jupyter Notebook containing the project code.
-    requirements.txt: Text file containing the list of required Python packages for seamless deployment on Hugging Face Spaces.
-    labels.csv: CSV file containing image paths and corresponding labels for training data.
-    model: Folder containing the exported model for deployment.
+## Live Demo
+Try it out: [Car Classifier on Hugging Face](https://huggingface.co/spaces/grover101/NeuralNet)
 
-Instructions:
+## Installation
+```bash
+pip install -r requirements.txt
+```
 
-    Data Collection: Ensure access to DuckDuckGo image search API and execute the provided code to collect images.
-    Model Building: Run the notebook to build and train the Neural Network model.
-    Model Exporting: Export the trained model using the provided code.
-    Deployment: Use the Hugging Face Spaces platform to deploy the exported model and share the provided link for access.
+## Usage
+1. Load model:
+```python
+learn = load_learner('model.pkl')
+```
 
-Conclusion:
-This project demonstrates the process of building and deploying a basic Neural Network model for image classification tasks. It provides a foundation for further exploration and refinement of deep learning techniques for car classification and similar applications.
+2. Make predictions:
+```python
+pred, idx, probs = learn.predict(image)
+```
+
+## Repository Structure
+```
+├── notebooks/
+│   └── Fast_AI_Car_Classifier.ipynb
+├── app.py
+├── model.pkl
+├── requirements.txt
+└── README.md
+```
+
+## Author
+Aravind Raju
