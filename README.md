@@ -35,6 +35,9 @@ learn = load_learner('model.pkl')
 pred, idx, probs = learn.predict(image)
 ```
 
+![image](https://github.com/user-attachments/assets/a893dd9d-f35f-4511-8bb2-e0cf2bd73b24)
+
+
 ## Repository Structure
 ```
 ├── notebooks/
